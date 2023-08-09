@@ -5,23 +5,23 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 @Entity()
 @ObjectType()
 export class Post {
-    @PrimaryGeneratedColumn()
-    @Field((type) => Int)
-    id: number;
+  @PrimaryGeneratedColumn()
+  @Field((type) => Int)
+  id: number;
 
-    @Column()
-    @Field()
-    title: string;
+  @Column()
+  @Field()
+  title: string;
 
-    @Column({nullable: true})
-    @Field({nullable: true})
-    content?: string;
-    
-    @Column()
-    @Field()
-    authorId: number;
+  @Column({ nullable: true })
+  @Field({ nullable: true })
+  content?: string;
 
-    @ManyToOne(() => Author, (author) => author.posts)
-    @Field()
-    author: Author;
+  @Column()
+  @Field()
+  authorId: number;
+
+  @ManyToOne(() => Author, (author) => author.posts)
+  @Field()
+  author: Author;
 }

@@ -10,10 +10,10 @@ export class Author {
   id: number;
 
   @Column()
-  @Field(() => String, { description: 'Author\'s name' })
+  @Field(() => String, { description: "Author's name" })
   name: string;
 
   @OneToMany(() => Post, (post) => post.author)
-  @Field(() => [Post], { nullable: true, description: 'Author\s posts' })
+  @Field(() => [Post], { nullable: true, description: 'Authors posts' })
   posts: Post[];
 }

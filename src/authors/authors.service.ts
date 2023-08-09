@@ -9,7 +9,7 @@ import { Repository } from 'typeorm';
 export class AuthorsService {
   constructor(
     @InjectRepository(Author) private authorRepository: Repository<Author>,
-  ){}
+  ) {}
 
   create(createAuthorInput: CreateAuthorInput): Promise<Author> {
     const author = this.authorRepository.create(createAuthorInput);
@@ -22,7 +22,7 @@ export class AuthorsService {
 
   findOne(id: number): Promise<Author> {
     return this.authorRepository.findOne({
-      where : {
+      where: {
         id,
       },
     });
