@@ -2,15 +2,23 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Author {
+  """Example field (placeholder)"""
+  id: Int!
+
+  """Author's name"""
+  name: String!
+
+  """Authors posts"""
+  posts: [Post!]
+}
+
 type Post {
   id: Int!
   title: String!
   content: String
-}
-
-type Author {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  authorId: Float!
+  author: Author!
 }
 
 type Query {
@@ -30,15 +38,14 @@ type Mutation {
 input createPostInput {
   title: String!
   content: String
+  authorId: Float!
 }
 
 input CreateAuthorInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  name: String!
 }
 
 input UpdateAuthorInput {
-  """Example field (placeholder)"""
-  exampleField: Int
+  name: String
   id: Int!
 }
