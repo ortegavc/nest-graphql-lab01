@@ -18,5 +18,5 @@ type Mutation {
 
 input createPostInput {
   title: String!
-  content: String!
+  content: String
 }
