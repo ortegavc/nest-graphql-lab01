@@ -1,7 +1,8 @@
-import { Query } from '@nestjs/graphql';
+import { Args, Mutation, Query } from '@nestjs/graphql';
 import { Resolver } from '@nestjs/graphql';
 import { PostsService } from './posts.service';
 import { Post } from './post.entity';
+import { createPostInput } from './dto/create-post.input';
 
 @Resolver()
 export class PostsResolver {
@@ -11,5 +12,10 @@ export class PostsResolver {
     @Query((returns) => [Post])
     posts() {
         return this.postService.findAll()
+    }
+
+    @Mutation((returns) => Post)
+    createPost(@Args('postInput') postInput: createPostInput) {
+        return this.postService.createPost(postInput);
     }
 }
